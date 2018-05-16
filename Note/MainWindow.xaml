@@ -1,0 +1,87 @@
+﻿<Window x:Class="Note.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Note"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <!--定義-->
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--視窗顯示-->
+        <Grid Grid.Column="1" x:Name="TitleBar" MouseMove="TitleBar_MouseMove">
+            <TextBlock Margin="100 10 0 0" FontSize="15" x:Name="Title" Foreground="Gray" Height="30" VerticalAlignment="Top">FileName.txt</TextBlock>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+            <Button Width="25" x:Name="MinBtn"  Click="MinBtn_Click" Background="White" BorderBrush="White" Foreground="Gray">–</Button>
+            <Button Width="25" x:Name="MaxBtn"  Click="MaxBtn_Click" Background="White" BorderBrush="White" Foreground="Gray">□</Button>
+            <Button Width="23" x:Name="CloseBtn"  Click="CloseBtn_Click" Background="White" BorderBrush="White" Foreground="Gray">x</Button>
+        </StackPanel>
+
+        <!--按鍵-->
+        <Rectangle Fill="Black" Margin="0 0 -80 0"></Rectangle>
+        <Rectangle  Grid.Row="1" Fill="Black" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="180"/>
+        <StackPanel Grid.Row="1">
+            <Button Margin="40 50 -20 20" x:Name="NewBtn" Click="NewBtn_Click" Background="Black" Foreground="White" BorderBrush="Black">N e w</Button>
+            <Button Margin="45 0 -20 20" x:Name="OpenBtn" Click="OpenBtn_Click" Background="Black" Foreground="White"  BorderBrush="Black">O p e n</Button>
+            <Button Margin="40 0 -20 20" Click="SaveBtn_Click" x:Name="SaveBtn" Background="Black" Foreground="White"  BorderBrush="Black">S a v e</Button>
+            <Button Margin="30 0 -50 20" Click="SaveAsBtn_Click" x:Name="SaveAsBtn" Background="Black" Foreground="White"  BorderBrush="Black">S a v e  A s</Button>
+        </StackPanel>
+        
+        <!--換顏色、字體大小-->
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <Button x:Name="ChangeGray" Click="ChangeGray_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Ellipse Width="20" Height="20" Fill="Gray" Stroke="DarkGray" StrokeThickness="3" Margin="2 330 -35 -5"></Ellipse>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="ChangeWhite" Click="ChangeWhite_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Ellipse Width="20" Height="20" Fill="White" Stroke="DarkGray" StrokeThickness="3" Margin="0 20 -35 0"></Ellipse>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,612,0">
+            <Button x:Name="ChangeSmall" Click="ChangeSmall_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <TextBlock FontSize="15" Foreground="Gray" Margin="60,410,0,105">A</TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="ChangeNormal" Click="ChangeNormal_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <TextBlock FontSize="20" Foreground="Gray" Margin="15 405 0 105">A</TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="ChangeBig" Click="ChangeBig_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <TextBlock FontSize="25" Foreground="Gray" Margin="15 400 0 105">A</TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        
+        <!--輸入框-->
+        <ScrollViewer Grid.Row="1" Grid.Column="1"  VerticalScrollBarVisibility="Auto">
+            <TextBox Grid.Column="1" Grid.Row="1"  TextWrapping="Wrap" AcceptsReturn="True" x:Name="Textarea" Foreground="Gray" TextChanged="Textarea_TextChanged" FontSize="15"  Margin="100 10 20 10"></TextBox>
+        </ScrollViewer>
+    </Grid>
+</Window>
