@@ -192,7 +192,7 @@ namespace Note
 
         private void ChangeNormal_Click(object sender, RoutedEventArgs e)
         {
-            Textarea.FontSize = 20;
+            Textarea.FontSize = 15;
         }
 
         private void ChangeBig_Click(object sender, RoutedEventArgs e)
